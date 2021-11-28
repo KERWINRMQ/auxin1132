@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ROTAR DIGITOS PARES A LA DERECHA</title>
+	<style type="text/css">
+	body{
+		background: #F3EEEB; 
+	}
+	h1{
+		text-align: center;
+		margin: 50px;
+	}
+	h3{
+		text-align: center;
+	}
+	 .calculos{
+	 	background: #c7502c;
+	 	color: #f0e8e6;
+	 	margin: 5px;
+	 	padding: 10px;
+	 	font-size: 30px;
+	 	margin-left: 480px;
+	 	margin-right: 480px;
+	 }
+	 .boton{
+	 	background: #c7502c;
+	 	color: #f0e8e6;
+	 	margin: 5px;
+	 	padding: 10px;
+	 	margin-left: 530px;
+	 	margin-right: 530px;
+	 }
+	</style>
+</head>
+<body>
+<h1>ROTAR DIGITOS PARES A LA DERECHA</h2>
+<div class="boton">
+	<h3>INGRESE UN NUMERO:</h3>
+	<input type="text" id="numero"/ >
+	<input type="button" value="Calcular" onclick="rotar()"/>
+</div>
+<div class="calculos">
+<div id="respuesta"></div>
+</div>
+<script language="javascript">
+	function rotar() {
+var numero= document.getElementById("numero").value;
+var x=1;
+l=Math.floor(Math.log10(numero));
+var elev=Math.pow(10,l);
+var d1=0;
+var c=0;
+var nv=0;
+var nv1=0;
+while(numero!=0){
+	d = Math.floor(numero/elev);
+	numero=numero%elev
+	f=d;
+	if(d%2==0){
+		nv=(nv*10)+d;
+		f=2;
+	}
+	nv1=(nv1*10)+f
+	elev = Math.floor(elev/10);
+}
+var n1=nv
+l1=Math.floor(Math.log10(nv));
+var elev1=Math.pow(10,l1);
+while(c!=x){
+	d=n1%10
+	d1=d*elev1
+	n1 = Math.floor(n1/10);
+	n1=n1+d1
+	c=c+1;
+}
+var ccc=0
+l3=Math.floor(Math.log10(nv1));
+var elev3=Math.pow(10,l3);
+l2=Math.floor(Math.log10(nv));
+var e1=Math.pow(10,l2);
+while(nv1!=0){
+	d2 = Math.floor(nv1/elev3);
+	nv1=nv1%elev3
+	elev3 = Math.floor(elev3/10);
+	if(d2==2){
+		if(n1!=0){
+			d1 = Math.floor(n1/e1);
+			n1=n1%e1
+			e1 = Math.floor(e1/10);
+			ccc=(ccc*10)+d1;
+		}
+	}else{
+			ccc=(ccc*10)+d2
+		}
+}
+document.getElementById("respuesta").innerHTML = "Numero rotado: "+ccc;
+}
+</script>
+</body>
+</html>
